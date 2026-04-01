@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AFG Constructora | Desarrollos en Buenos Aires</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--sand:#C4A87C;--sand2:#D4BC96;--sand-dim:#8B7355}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:#F8F6F2;color:#111;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 48px;display:flex;justify-content:space-between;align-items:center;transition:all .4s}
+nav.s{background:rgba(248,246,242,.97);box-shadow:0 1px 12px rgba(0,0,0,.05)}
+nav img{height:26px}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{text-decoration:none;font-size:12px;font-weight:400;color:rgba(255,255,255,.6);transition:color .3s}
+nav.s .nav-links a{color:#888}
+.nav-links a:hover{color:var(--sand)}
+.nav-links .nav-cta{padding:10px 24px;background:var(--sand);color:#0D0D0D!important;border-radius:4px;font-weight:600;font-size:12px}
+.nav-links .nav-cta:hover{background:var(--sand2)}
+
+/* HERO - dark */
+.hero{height:100vh;position:relative;display:flex;align-items:flex-end;overflow:hidden;background:#0D0D0D}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.3)}
+.hero-overlay{position:relative;z-index:1;width:100%;padding:0 48px 60px}
+.hero-counters{display:flex;gap:48px;margin-bottom:40px}
+.hc{border-left:1px solid rgba(196,168,124,.3);padding-left:20px}
+.hc .hv{font-size:48px;font-weight:700;color:var(--sand);line-height:1}
+.hc .hl{font-size:12px;color:#777;margin-top:4px}
+.hero h1{font-size:46px;font-weight:700;color:#fff;line-height:1.15;max-width:700px;margin-bottom:16px}
+.hero p{font-size:15px;color:rgba(255,255,255,.45);max-width:520px;line-height:1.7;margin-bottom:28px}
+.hero-btn{padding:14px 32px;background:var(--sand);color:#0D0D0D;text-decoration:none;font-size:13px;font-weight:600;border-radius:4px;transition:all .3s;display:inline-block}
+.hero-btn:hover{background:var(--sand2);transform:translateY(-2px)}
+
+/* SHARED SECTION */
+.section{max-width:1200px;margin:0 auto;padding:100px 48px 0}
+.sec-label{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--sand-dim);margin-bottom:8px;font-weight:500}
+.sec-title{font-size:36px;font-weight:700;color:#111;margin-bottom:12px}
+.sec-sub{font-size:14px;color:#888;max-width:500px;line-height:1.7;margin-bottom:48px}
+
+/* PROJECT CARDS */
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pcard{position:relative;border-radius:8px;overflow:hidden;height:420px;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.06)}
+.pcard img{width:100%;height:100%;object-fit:cover;transition:transform .6s;filter:brightness(.85)}
+.pcard:hover img{transform:scale(1.04);filter:brightness(.75)}
+.pcard .badge{position:absolute;top:16px;left:16px;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:4px;font-weight:600;z-index:2}
+.pcard .badge.done{background:var(--sand);color:#111}
+.pcard .badge.wip{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(4px)}
+.pcard .info{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.78);backdrop-filter:blur(6px);padding:18px 24px;border-bottom-left-radius:8px;border-bottom-right-radius:8px}
+.pcard .info h4{font-size:20px;font-weight:700;color:#fff;margin-bottom:3px}
+.pcard .info .addr{font-size:12px;color:rgba(255,255,255,.55)}
+.pcard .info .meta{font-size:12px;color:var(--sand2);margin-top:4px;font-weight:600}
+.portfolio-cta{text-align:center;margin-top:44px;padding-bottom:20px}
+.portfolio-btn{padding:14px 36px;border:1px solid var(--sand);color:var(--sand);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:600;border-radius:4px;transition:all .3s;display:inline-block}
+.portfolio-btn:hover{background:var(--sand);color:#111}
+
+/* SERVICES */
+.srv-band{background:#fff;border-top:1px solid #eae7e1;border-bottom:1px solid #eae7e1;padding:80px 48px;margin-top:100px}
+.srv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1200px;margin:0 auto}
+.srv-card{text-align:center;padding:32px 20px}
+.srv-num{font-size:13px;color:var(--sand-dim);font-weight:600;letter-spacing:1px;margin-bottom:14px}
+.srv-card h4{font-size:16px;font-weight:600;color:#111;margin-bottom:8px}
+.srv-card p{font-size:12px;line-height:1.7;color:#999}
+
+/* ABOUT */
+.about{max-width:1200px;margin:0 auto;padding:100px 48px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.about img{width:100%;border-radius:8px;box-shadow:0 16px 48px rgba(0,0,0,.06)}
+.about-text .tag{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--sand-dim);margin-bottom:12px;font-weight:500}
+.about-text h2{font-size:32px;font-weight:700;color:#111;line-height:1.3;margin-bottom:20px}
+.about-text p{font-size:14px;line-height:1.9;color:#777;margin-bottom:12px}
+.vals{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.vals span{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--sand-dim);font-weight:600;padding:8px 16px;background:rgba(196,168,124,.06);border:1px solid rgba(196,168,124,.15);border-radius:4px}
+
+/* CTA - dark */
+.cta-band{background:#111;padding:100px 48px;text-align:center}
+.cta-band h2{font-size:40px;font-weight:700;color:#fff;margin-bottom:14px}
+.cta-band p{font-size:14px;color:#666;max-width:500px;margin:0 auto 32px;line-height:1.7}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-wa{padding:14px 28px;background:#25D366;color:#fff;text-decoration:none;font-size:13px;font-weight:600;border-radius:4px;transition:all .3s;display:inline-flex;align-items:center;gap:8px}
+.btn-wa:hover{background:#1da851;transform:translateY(-2px)}
+.btn-wa svg{width:18px;height:18px;fill:currentColor}
+.btn-email{padding:14px 28px;border:1px solid #333;color:#888;text-decoration:none;font-size:12px;letter-spacing:1px;font-weight:500;border-radius:4px;transition:all .3s}
+.btn-email:hover{border-color:var(--sand);color:var(--sand)}
+
+/* FOOTER - dark */
+.footer-wrap{background:#111;border-top:1px solid #1a1a1a}
+.footer-inner{max-width:1200px;margin:0 auto;padding:48px;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:36px}
+.footer-inner img{width:120px;margin-bottom:16px}
+.footer-inner p{font-size:13px;color:#555;line-height:1.7;max-width:280px}
+.footer-inner h5{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#555;margin-bottom:12px;font-weight:600}
+.footer-inner a{display:block;font-size:13px;color:#555;text-decoration:none;margin-bottom:6px;transition:color .3s}
+.footer-inner a:hover{color:var(--sand)}
+.footer-bottom{max-width:1200px;margin:0 auto;padding:20px 48px;text-align:center;font-size:11px;color:#333;border-top:1px solid #1a1a1a}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(36px);transition:opacity .7s ease-out,transform .7s ease-out}
+.rv.vis{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:14px 20px}
+  .nav-links{gap:14px}
+  .hero-counters{flex-wrap:wrap;gap:20px}
+  .hero h1{font-size:30px}
+  .hero-overlay{padding:0 24px 40px}
+  .proj-grid{grid-template-columns:1fr}
+  .pcard{height:300px}
+  .srv-grid{grid-template-columns:1fr 1fr}
+  .about{grid-template-columns:1fr;gap:32px;padding:60px 24px}
+  .section{padding:60px 24px 0}
+  .footer-inner{grid-template-columns:1fr;padding:48px 24px}
+}
+@media(max-width:600px){
+  .srv-grid{grid-template-columns:1fr}
+  .hc .hv{font-size:36px}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <img src="img/logo-white.png" alt="AFG">
+  <div class="nav-links">
+    <a href="#proyectos">Proyectos</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#contacto" class="nav-cta">Consultar</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"><img src="img/hero-suipacha.jpg" alt="Suipacha"></div>
+  <div class="hero-overlay">
+    <div class="hero-counters">
+      <div class="hc"><div class="hv" data-count="7">0</div><div class="hl">Proyectos</div></div>
+      <div class="hc"><div class="hv" data-count="228">0</div><div class="hl">Unidades entregadas</div></div>
+      <div class="hc"><div class="hv" data-count="30000">0</div><div class="hl">M² construidos</div></div>
+    </div>
+    <h1>Construimos con la misma exigencia con la que elegiríamos vivir</h1>
+    <p>Desarrollos residenciales, hoteleros y comerciales en Buenos Aires y todo el país. Calidad, diseño y cumplimiento.</p>
+    <a href="#proyectos" class="hero-btn">Ver Proyectos</a>
+  </div>
+</section>
+
+<section class="section rv" id="proyectos">
+  <div class="sec-label">Nuestros Proyectos</div>
+  <div class="sec-title">Obras que definen ciudad</div>
+  <div class="sec-sub">4 obras entregadas y 3 en desarrollo activo en las mejores ubicaciones de Buenos Aires.</div>
+  <div class="proj-grid">
+    <div class="pcard rv"><img src="img/obra-juan-b-justo.jpg" alt=""><div class="badge done">Entregada</div><div class="info"><h4>Juan B. Justo</h4><div class="addr">Av. Juan B. Justo 4098 · CABA</div><div class="meta">2.500 m² · 50 unidades · 2025</div></div></div>
+    <div class="pcard rv"><img src="img/obra-peron.jpg" alt=""><div class="badge done">Entregada</div><div class="info"><h4>Perón</h4><div class="addr">Perón 1281 · CABA</div><div class="meta">+7.700 m² · 165 unidades hotel</div></div></div>
+    <div class="pcard rv"><img src="img/obra-acevedo.jpg" alt=""><div class="badge done">Entregada</div><div class="info"><h4>Acevedo</h4><div class="addr">Eduardo Acevedo 67 · CABA</div><div class="meta">2.200 m² · 13 unidades · Dúplex</div></div></div>
+    <div class="pcard rv"><img src="img/obra-suipacha.jpg" alt=""><div class="badge wip">En construcción</div><div class="info"><h4>Suipacha</h4><div class="addr">Suipacha y Paraguay · CABA</div><div class="meta">4.830 m² · 66 dptos · 13 pisos</div></div></div>
+    <div class="pcard rv"><img src="img/obra-godoy-cruz.jpg" alt=""><div class="badge wip">En construcción</div><div class="info"><h4>Godoy Cruz</h4><div class="addr">Godoy Cruz 2936 · CABA</div><div class="meta">7.320 m² · 50 unidades · PB+17</div></div></div>
+    <div class="pcard rv"><img src="img/obra-tucuman.jpg" alt=""><div class="badge wip">En construcción</div><div class="info"><h4>Tucumán</h4><div class="addr">Tucumán 780 · CABA</div><div class="meta">+5.000 m² · +90 dptos · Microcine</div></div></div>
+  </div>
+  <div class="portfolio-cta rv"><a href="#contacto" class="portfolio-btn">Solicitar Portfolio Completo</a></div>
+</section>
+
+<div class="srv-band rv">
+  <div class="srv-grid">
+    <div class="srv-card"><div class="srv-num">01</div><h4>Obra Nueva Residencial</h4><p>Edificios con diseño contemporáneo y terminaciones de primer nivel.</p></div>
+    <div class="srv-card"><div class="srv-num">02</div><h4>Reformas y Restauraciones</h4><p>Edificios de época restaurados con estándares actuales de confort.</p></div>
+    <div class="srv-card"><div class="srv-num">03</div><h4>Desarrollos Hoteleros</h4><p>Complejos con pileta, gimnasio, rooftop y amenities de categoría.</p></div>
+    <div class="srv-card"><div class="srv-num">04</div><h4>Comercial y Oficinas</h4><p>Locales, oficinas y espacios diseñados para maximizar valor.</p></div>
+  </div>
+</div>
+
+<section class="about rv" id="nosotros">
+  <img src="img/obra-suipacha.jpg" alt="AFG">
+  <div class="about-text">
+    <div class="tag">Sobre Nosotros</div>
+    <h2>Más de una década construyendo confianza</h2>
+    <p>AFG Constructora desarrolla proyectos residenciales, hoteleros y comerciales en Buenos Aires y el interior del país.</p>
+    <p>Cada obra refleja nuestro compromiso con la excelencia constructiva, el diseño contemporáneo y la atención al detalle.</p>
+    <div class="vals"><span>Calidad</span><span>Diseño</span><span>Transparencia</span><span>Cumplimiento</span></div>
+  </div>
+</section>
+
+<div class="cta-band rv" id="contacto">
+  <h2>¿Tenés un proyecto?</h2>
+  <p>Contactanos para conocer más sobre nuestras obras en desarrollo y oportunidades de inversión.</p>
+  <div class="cta-btns">
+    <a href="https://wa.me/5491125043008" target="_blank" class="btn-wa"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
+    <a href="mailto:administracionafg@afgconstructora.com.ar" class="btn-email">Enviar Email</a>
+  </div>
+</div>
+
+<div class="footer-wrap">
+  <div class="footer-inner">
+    <div><img src="img/logo-white.png" alt="AFG"><p>Desarrollos de calidad en Buenos Aires y todo el país.</p></div>
+    <div><h5>Navegación</h5><a href="#proyectos">Proyectos</a><a href="#nosotros">Nosotros</a><a href="#contacto">Contacto</a></div>
+    <div><h5>Contacto</h5><a href="https://wa.me/5491125043008">+54 9 11 2504-3008</a><a href="mailto:administracionafg@afgconstructora.com.ar">administracionafg@afgconstructora.com.ar</a><a href="https://instagram.com/afg_contructora" target="_blank">@afg_contructora</a></div>
+  </div>
+  <div class="footer-bottom">AFG CONSTRUCTORA © 2026 — Buenos Aires, Argentina</div>
+</div>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('s',scrollY>60)});
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.08});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+let counted=false;
+const nobs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!counted){counted=true;
+document.querySelectorAll('[data-count]').forEach(el=>{
+  const t=+el.dataset.count,dur=1500,st=Date.now();
+  (function step(){const p=Math.min((Date.now()-st)/dur,1);const c=Math.floor(p*t);
+    if(t>=10000)el.textContent=c>=1000?'+'+Math.floor(c/1000)+'K':'0';
+    else if(t>=100)el.textContent='+'+c;
+    else el.textContent=c;
+    if(p<1)requestAnimationFrame(step);
+    else{if(t>=10000)el.textContent='+'+Math.floor(t/1000)+'K';else if(t>=100)el.textContent='+'+t;else el.textContent=t;}
+  })();});}})},{threshold:.3});
+nobs.observe(document.querySelector('.hero'));
+</script>
+</body>
+</html>
